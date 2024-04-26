@@ -27,7 +27,8 @@ function M.get_path_to_illustration_dir()
         return vim.fn.getcwd() .. "/" .. directory_name
     end
 
-    local vimtex = vim.b.vimtex ~= nil
+    -- local vimtex = vim.b.vimtex ~= nil
+    local vimtex = false -- Always search from current file path. This is to make behaviour more consistent with creation of illustrations dir.
     if vimtex then
         local figures_dir = vim.b.vimtex.root .. '/' .. directory_name
         if directory_exists(figures_dir) then
